@@ -26,11 +26,6 @@ RUN apk --no-cache add ca-certificates
 COPY --from=builder /bin/autoscaler /bin
 CMD ["autoscaler"]
 
-FROM alpine:3.12 as activator
-RUN apk --no-cache add ca-certificates
-COPY --from=builder /bin/activator /bin
-CMD ["activator"]
-
 FROM alpine:3.12 as controller
 RUN apk --no-cache add ca-certificates
 COPY --from=builder /bin/controller /bin
@@ -55,3 +50,7 @@ FROM alpine:3.12 as default-domain
 RUN apk --no-cache add ca-certificates
 COPY --from=builder /bin/default-domain /bin
 CMD ["default-domain"]
+
+FROM alpine:3.12
+RUN apk --no-cache add ca-certificates
+COPY --from=builder /bin/activator /bin/autoscaler-hpa /bin/autoscaler /bin/networking-nscert /bin/queue /bin/default-domain /bin/webhook /bin
