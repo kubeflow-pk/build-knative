@@ -28,4 +28,4 @@ before_install:
 script:
   - cp Dockerfile serving/
   - cd serving
-  - docker buildx build --platform linux/amd64,linux/arm64 -t ${IMAGE_NAME} -f Dockerfile .
+  - docker buildx build -q --platform linux/amd64,linux/arm64 -t ${IMAGE_NAME} -f Dockerfile .
