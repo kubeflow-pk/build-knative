@@ -3,12 +3,11 @@ dist: bionic
 env:
   global:
     - CODE_TAG=v0.17.2
-#    - IMAGE_NAME=pkskubeflow/notebook-controller:${CODE_TAG}
 
 services:
   - docker
 
-before_install
+before_install:
   - curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
   - sudo add-apt-repository "deb [arch=${TRAVIS_CPU_ARCH}] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
   - sudo apt-get update
