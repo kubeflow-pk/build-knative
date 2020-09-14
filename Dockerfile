@@ -53,4 +53,4 @@ CMD ["default-domain"]
 
 FROM alpine:3.12
 RUN apk --no-cache add ca-certificates
-COPY --from=builder /bin/activator /bin/autoscaler-hpa /bin/autoscaler /bin/networking-nscert /bin/queue /bin/default-domain /bin/webhook /bin
+COPY --from=builder /bin/activator /bin/autoscaler-hpa /bin/autoscaler /bin/networking-nscert /bin/queue /bin/default-domain /bin/webhook /bin/
