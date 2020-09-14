@@ -32,6 +32,6 @@ before_install:
 script:
   - cp Dockerfile serving/
   - cd serving
-  - docker build -t ${IMAGE_NAME} -f Dockerfile .
+  - docker build -t ${IMAGE_NAME}:${CODE_TAG} -f Dockerfile .
   - docker push ${IMAGE_NAME}:${CODE_TAG}
 #  - if [ "${TRAVIS_CPU_ARCH}" = "amd64" ]; then docker buildx build --platform linux/amd64 -t ${IMAGE_NAME} -f Dockerfile . ; else docker buildx build --platform linux/arm64 -t ${IMAGE_NAME} -f Dockerfile . ; fi
