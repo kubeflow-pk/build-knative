@@ -3,7 +3,8 @@ dist: bionic
 env:
   global:
     - CODE_TAG=v0.17.2
-
+    - IMAGE_NAME=pkskubeflow/knative
+    
 services:
   - docker
 
